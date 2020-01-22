@@ -1,0 +1,5 @@
+SortedMap is an interface in collection framework. This interface extends Map inrerface and provides a total ordering of its elements (elements can be traversed in sorted order of keys). Exampled class that implements this interface is TreeMap.
+TreeMap
+TreeMap
+Treemap
+zzzzz

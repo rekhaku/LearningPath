@@ -1,0 +1,12 @@
+Java Programs:
+###############################################################################
+1.Dictionary
+- receives input from DictionaryInput.txt as a paragraph of words.
+- Add words to the output file DictionaryOutput.txt if they are not present already.
+- Delimiters to distinguish the words are ',' '.'  '()'
+###############################################################################
+2.ParenthesisValidation
+- Validates the input string basedon the below rules
+- number of left Parenthesis == number of right Parenthesis
+- no right Parenthesis should come before first left Parenthesis
+- no left Parenthesis should come after last right Parenthesis
