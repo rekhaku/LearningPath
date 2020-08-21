@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" href="css/style.css">
+
+<title>Pandemic Statistics</title>
+</head>
+
+
+<body>
+
+	<div class="root-div">
+		<div id="myModal" class="w3-model animate">
+			<div class="w3-modal-content">
+				<div class="w3-container">
+					<div class="w3-container w3-teal">
+						<h1>Person Details</h1>
+					</div>
+					<div class="w3-container">
+						<form th:action="@{/personDetails}" th:object=${person}
+							method="POST">
+							<div class="w3-container">
+								<div class="w3-bar-block">
+									<table class="w3-centered">
+										<tr>
+											<td width="20%" class="w3-left-align"><label
+												for="firstName">First Name</label>:</td>
+											<td width="30%" class="w3-left-align"><input type="text"
+												id="firstName" name="firstName" class="form-control"
+												autofocus="autofocus" placeholder="First Name"
+												th:field="*{firstName}" /></td>
+											<td width="50%" class="w3-error"><span
+												th:if="${#fields.hasErrors('firstName')}"
+												th:errors="*{firstName}">Name Error </span></td>
+
+
+
+										</tr>
+										<tr>
+											<td width="20%" class="w3-left-align"><label
+												for="lastName">Last Name</label>:</td>
+											<td width="30%" class="w3-left-align"><input type="text"
+												id="lastName" name="lastName" class="form-control"
+												autofocus="autofocus" placeholder="Last Name"
+												th:field="*{lastName}" /></td>
+											<td width="50%" class="w3-error"><span
+												th:if="${#fields.hasErrors('lastName')}"
+												th:errors="*{lastName}">Name Error </span></td>
+										</tr>
+										<tr>
+											<td width="20%" class="w3-left-align"><label for="age">Age</label>:</td>
+											<td width="30%" class="w3-left-align"><input type="text"
+												id="age" name="age" class="form-control"
+												autofocus="autofocus" placeholder="Age" th:field="*{age}" /></td>
+											<td width="50%" class="w3-error"><span
+												th:if="${#fields.hasErrors('age')}"
+												th:errors="*{age}">Name Error </span></td>
+										</tr>
+										<tr>
+											<td width="20%" class="w3-left-align"><label
+												for="gender">Gender</label>:</td>
+											<td width="30%" class="w3-left-align"><label>Female</label>
+												<input type="radio" id="genderF" name="genderF"
+												class="form-control" autofocus="autofocus"
+												placeholder="Female" th:field="*{gender}" value="Female" />
+												<label>Male</label> <input type="radio" id="genderM"
+												name="genderM" class="form-control" autofocus="autofocus"
+												placeholder="Male" th:field="*{gender}" value="Male" /></td>
+											<td width="50%" class="w3-error"><span
+												th:if="${#fields.hasErrors('gender')}"
+												th:errors="*{gender}">Name Error </span></td>
+										</tr>
+										<tr>
+											<td class="w3-left-align"><label><b>Address</b>
+											</label></td>
+										</tr>
+										<tr>
+
+											<td width="20%" class="w3-left-align"><label
+												for="houseNo">House No</label>:</td>
+											<td width="30%" class="w3-left-align"><input type="text"
+												id="houseNo" name="address" class="form-control"
+												autofocus="autofocus" placeholder="House No."
+												th:field="*{address.houseNo}" /></td>
+											<td width="50%" class="w3-error"><span
+												th:if="${#fields.hasErrors('address.houseNo')}"
+												th:errors="*{address.houseNo}">Name Error </span></td>
+										</tr>
+										<tr>
+											<td width="20%" class="w3-left-align"><label
+												for="houseName">House Name</label>:</td>
+											<td width="30%" class="w3-left-align"><input type="text"
+												id="houseName" name="houseName" class="form-control"
+												autofocus="autofocus" placeholder="House Name"
+												th:field="*{address.houseName}" /></td>
+											<td width="50%" class="w3-error" ><span
+												th:if="${#fields.hasErrors('address.houseName')}"
+												th:errors="*{address.houseName}">Name Error </span></td>
+										</tr>
+										<tr>
+											<td width="20%" class="w3-left-align"><label
+												for="street">Street</label>:</td>
+											<td width="30%" class="w3-left-align"><input type="text"
+												id="street" name="street" class="form-control"
+												autofocus="autofocus" placeholder="Street"
+												th:field="*{address.street}" /></td>
+											<td width="50%" class="w3-error"><span
+												th:if="${#fields.hasErrors('address.street')}"
+												th:errors="*{address.street}">Name Error </span></td>
+										</tr>
+										<tr>
+											<td width="20%" class="w3-left-align"><label for="town">Town</label>:</td>
+											<td width="30%" class="w3-left-align"><input type="text"
+												id="town" name="town" class="form-control"
+												autofocus="autofocus" placeholder="town"
+												th:field="*{address.town}" /></td>
+											<td width="50%" class="w3-error"><span
+												th:if="${#fields.hasErrors('address.town')}"
+												th:errors="*{address.town}">Name Error </span></td>
+										</tr>
+										<tr>
+											<td width="20%" class="w3-left-align"><label for="zone">Zone</label>:</td>
+											<td width="30%" class="w3-left-align"><input type="text"
+												id="zone" name="zone" class="form-control"
+												autofocus="autofocus" placeholder="zone"
+												th:field="*{address.zone}" /></td>
+											<td width="50%" class="w3-error"><span
+												th:if="${#fields.hasErrors('address.zone')}"
+												th:errors="*{address.zone}">Name Error </span></td>
+										</tr>
+										<tr>
+											<td width="20%" class="w3-left-align"><label
+												for="district">District</label>:</td>
+											<td width="30%" class="w3-left-align"><input type="text"
+												id="district" name="district" class="form-control"
+												autofocus="autofocus" placeholder="District"
+												th:field="*{address.district}" /></td>
+											<td width="50%" class="w3-error"><span
+												th:if="${#fields.hasErrors('address.district')}"
+												th:errors="*{address.district}">Name Error </span></td>
+										</tr>
+										<tr>
+											<td width="20%" class="w3-left-align"><label
+												for="pincode">Pin code</label>:</td>
+											<td width="30%" class="w3-left-align"><input type="text"
+												id="pincode" name="pincode" class="form-control"
+												autofocus="autofocus" placeholder="Pin Code"
+												th:field="*{address.pincode}" /></td>
+											<td width="50%" class="w3-error" ><span
+												th:if="${#fields.hasErrors('address.pincode')}"
+												th:errors="*{address.pincode}">Name Error </span></td>
+										</tr>
+
+									</table>
+								</div>
+							</div>
+							<div class="w3-container w3-teal">
+								<div class="w3-bar-block">
+									<table class="w3-centered">
+										<tr>
+
+											<td width="50%" class="w3-right-align"><input
+												type="submit" name="update-submit" id="update-submit"
+												class="w3-button" value="Update" /></td>
+										</tr>
+									</table>
+								</div>
+
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" href="css/style.css">
+
+<title>Pandemic Statistics</title>
+</head>
+
+
+<body>
+
+	<div class="root-div">
+		<div id="myModal" class="w3-model animate">
+			<div class="w3-modal-content">
+				<div class="w3-container">
+					<div class="w3-container w3-teal">
+						<h1>Registration</h1>
+					</div>
+					<div class="w3-container">
+						<form th:action="@{/registration}" th:object=${registrationUser} method="POST">
+							<div class="w3-container">
+								<div class="w3-bar-block">
+								
+								<div class = "w3-error" th:text ="${error}" ></div>
+									<table class="w3-centered">
+										<tr>
+											<td width="30%" class="w3-right-align"><label
+												for="userName">User Name</label>:</td>
+											<td width="30%" class="w3-right-align"><input
+												type="text" id="userName" name="userName"
+												class="form-control" autofocus="autofocus"
+												placeholder="User Name" th:field="*{userName}" /></td>
+												<td width="40%" class="w3-left-align w3-error"><span
+											th:if="${#fields.hasErrors('userName')}"
+											th:errors="*{userName}">Name Error </span></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="w3-container">
+								<div class="w3-bar-block">
+									<table class="w3-centered">
+										<tr>
+											<td width="30%" class="w3-right-align"><label
+												for="password">Password</label>:</td>
+											<td width="30%" class="w3-right-align"><input
+												type="password" id="password" name="password"
+												class="form-control" placeholder="Password" /></td>
+													<td width="40%" class="w3-left-align w3-error"><span
+											th:if="${#fields.hasErrors('password')}"
+											th:errors="*{password}">Name Error </span></td>
+										</tr>
+									</table>
+								</div>
+
+							</div>
+
+							<div class="w3-container">
+								<div class="w3-bar-block">
+									<table class="w3-centered">
+										<tr>
+											<td width="30%" class="w3-right-align"><label
+												for="confirmPassword">Confirm Password</label>:</td>
+											<td width="30%" class="w3-right-align"><input
+												type="password" id="confirmPassword" name="confirmPassword"
+												class="form-control" placeholder="confirmPassword" /></td>
+													<td width="40%" class="w3-left-align w3-error"><span
+											th:if="${#fields.hasErrors('confirmPassword')}"
+											th:errors="*{confirmPassword}">Name Error </span></td>
+										</tr>
+									</table>
+								</div>
+
+							</div>
+
+							<div class="w3-container">
+								<div class="w3-bar-block">
+									<table class="w3-centered">
+										<tr>
+											<td width="30%" class="w3-right-align"><label
+												for="contactNo">Contact No</label>:</td>
+											<td width="30%" class="w3-right-align"><input
+												type="text" id="contactNo" name="contactNo"
+												class="form-control" placeholder="Contact No" maxlength="11" />
+											</td>
+												<td width="40%" class="w3-left-align w3-error"><span
+											th:if="${#fields.hasErrors('contactNo')}"
+											th:errors="*{contactNo}">Name Error </span></td>
+										</tr>
+									</table>
+								</div>
+
+							</div>
+							<div class="w3-container">
+								<div class="w3-container">
+									<table class="w3-centered">
+										<tr>
+											<td width="30%" class="w3-right-align"><label for="role">Role</label>:
+											</td>
+											<td width="30%" class="w3-right-align"><select
+												th:field="*{role}" required="required">
+													<option th:value="--"> Select your Role</option>
+													<option th:value="'ADMIN'" th:text="ADMIN"></option>
+													<option th:value="'MEDICO'" th:text="MEDICO"></option>
+													<option th:value="'PERSON'" th:text="PERSON"></option>
+											</select></td>
+												<td width="40%" class="w3-left-align w3-error"><span
+											th:if="${#fields.hasErrors('role')}"
+											th:errors="*{role}">Name Error </span></td>
+										</tr>
+										
+									</table>
+								</div>
+
+							</div>
+
+							<div class="w3-container w3-teal">
+								<div class="w3-bar-block">
+									<table class="w3-centered">
+										<tr>
+
+											<td width="50%" class="w3-right-align"><input
+												type="submit" name="login-submit" id="login-submit"
+												class="w3-button" value="Register" /></td>
+										</tr>
+									</table>
+								</div>
+
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
